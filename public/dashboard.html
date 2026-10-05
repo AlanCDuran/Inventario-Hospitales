@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel del hospital</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="top">
+    <h1 id="titulo">Hospital</h1>
+    <button class="btn sec chico" id="salir">Cerrar sesión</button>
+  </header>
+
+  <main>
+    <section class="resumen">
+      <div class="card" data-estado=""><small>Total de equipos</small><strong id="r-total">0</strong></div>
+      <div class="card operativo" data-estado="operativo"><small>Operativos</small><strong id="r-operativo">0</strong></div>
+      <div class="card requiere_revision" data-estado="requiere_revision"><small>Requieren revisión</small><strong id="r-requiere_revision">0</strong></div>
+      <div class="card dado_de_baja" data-estado="dado_de_baja"><small>Dados de baja</small><strong id="r-dado_de_baja">0</strong></div>
+    </section>
+
+    <div class="barra">
+      <input id="buscar" placeholder="Buscar por nombre, serial, marca o ubicación">
+      <select id="filtro">
+        <option value="">Todos los estados</option>
+        <option value="operativo">Operativo</option>
+        <option value="requiere_revision">Requiere revisión</option>
+        <option value="dado_de_baja">Dado de baja</option>
+      </select>
+      <span class="espacio"></span>
+      <button class="btn" id="nuevo">+ Nuevo equipo</button>
+    </div>
+
+    <div class="tabla-wrap">
+      <table>
+        <thead>
+          <tr><th>Equipo</th><th>Marca / Modelo</th><th>Serial</th><th>Ubicación</th><th>Última revisión</th><th>Estado</th><th></th></tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <div class="vacio" id="vacio" hidden>No hay equipos para mostrar.</div>
+    </div>
+  </main>
+
+  <dialog id="dlg">
+    <form id="form">
+      <h2 id="dlg-titulo">Nuevo equipo</h2>
+      <input type="hidden" id="id">
+      <label>Nombre del equipo</label><input id="nombre" required>
+      <div class="fila2">
+        <div><label>Marca</label><input id="marca"></div>
+        <div><label>Modelo</label><input id="modelo"></div>
+      </div>
+      <div class="fila2">
+        <div><label>Serial</label><input id="serial" required></div>
+        <div><label>Ubicación</label><input id="ubicacion"></div>
+      </div>
+      <div class="fila2">
+        <div><label>Estado</label>
+          <select id="estado">
+            <option value="operativo">Operativo</option>
+            <option value="requiere_revision">Requiere revisión</option>
+            <option value="dado_de_baja">Dado de baja</option>
+          </select>
+        </div>
+        <div><label>Última revisión</label><input type="date" id="fechaUltimaRevision"></div>
+      </div>
+      <label>Observaciones</label><textarea id="observaciones" rows="2"></textarea>
+      <div class="error" id="error"></div>
+      <div class="acciones">
+        <button type="button" class="btn sec" id="cancelar">Cancelar</button>
+        <button class="btn">Guardar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

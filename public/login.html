@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingresar</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="centro">
+    <div class="tarjeta">
+      <h2>Iniciar sesión</h2>
+      <form id="form">
+        <label for="usuario">Usuario</label>
+        <input id="usuario" autocomplete="username" required>
+        <label for="password">Contraseña</label>
+        <input id="password" type="password" autocomplete="current-password" required>
+        <div class="error" id="error"></div>
+        <button class="btn" style="width:100%;margin-top:.8rem">Entrar</button>
+      </form>
+      <a class="volver" href="index.html">← Volver al inicio</a>
+    </div>
+  </div>
+  <script src="js/login.js"></script>
+</body>
+</html>
